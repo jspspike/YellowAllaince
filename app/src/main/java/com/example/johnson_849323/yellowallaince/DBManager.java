@@ -1,4 +1,4 @@
-package com.example.johnson_849323.YellowAllaince;
+package com.example.johnson_849323.yellowallaince;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -21,18 +21,19 @@ public class DBManager extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     // Database Name
-    private static final String DATABASE_NAME = "teamsManager";
+    private static final String DATABASE_NAME = "contactsManager";
 
     // Contacts table name
-    private static final String DB_TABLES = "teams";
+    private static final String DB_TABLES = "contacts";
 
     // Contacts Table Columns names
     private static final String KEY_ID = "id";
-    private static final String KEY_NUMBER = "number";
     private static final String KEY_NAME = "name";
-    private static final String KEY_ALLAINCE = "alliance";
-    private static final String KEY_MATCH_NUMBERS = "numbers";
-    private static final String KEY_SCORES = "scores";
+    private static final String KEY_NUMBER = "number";
+    private static final String KEY_SCORE = "score";
+    private static final String KEY_MATCH = "match";
+    private static final String KEY_ALLIANCE = "alliance";
+
 
     public DBManager(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -42,8 +43,8 @@ public class DBManager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + DB_TABLES + "("
-                + KEY_ID +  " INTEGER PRIMARY KEY," + KEY_NUMBER + "NUMBERS," + KEY_NAME + " TEXT,"
-                + KEY_ALLAINCE + " TEXT," + KEY_MATCH_NUMBERS + "NUMBERS," + KEY_SCORES + "NUMBERS" + ")"; //Create SQL command to create table
+                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
+                + KEY_NUMBER + " TEXT," + KEY_SCORE + " NUMBERS," + KEY_MATCH + " NUMBERS," + KEY_ALLIANCE + " TEXT" + ")"; //Create SQL command to create table
         db.execSQL(CREATE_CONTACTS_TABLE); //Run the SQL command to create the table
     }
 
@@ -62,19 +63,18 @@ public class DBManager extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-
         values.put(KEY_NAME, team.getName()); //Name variable in new contact
-        values.put(KEY_NUMBER, team.getNumber());
-        values.put(KEY_ALLAINCE, team.getAlliance()); //Phone number variable in new contact
-        values.put(KEY_MATCH_NUMBERS, team.getMatch());
-        values.put(KEY_SCORES, team.getScore());
+        values.put(KEY_NUMBER, team.getNumber()); //Phone number variable in new contact
+        values.put(KEY_SCORE, team.getScore());
+        values.put(KEY_MATCH, team.getMatch());
+        values.put(KEY_ALLIANCE, team.getAlliance());
 
         db.insert(DB_TABLES, null, values); //Adds the new contact to the database
         db.close();
     }
 
-    public List<Team> getAllContacts() { //Gets an arraylist of contacts from all of the contacts in the database
-        List<Team> teamList = new ArrayList<>();
+    public ArrayList<Team> getAllContacts() { //Gets an arraylist of contacts from all of the contacts in the database
+        ArrayList<Team> contactList = new ArrayList<Team>();
 
         String selectQuery = "SELECT  * FROM " + DB_TABLES; //Gets contact data as a string
 
@@ -83,34 +83,28 @@ public class DBManager extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do {
-                Team team = new Team(Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(2)), cursor.getString(1), cursor.getString(3), cursor.getString(4), cursor.getString(5));
-                 //Gets contact phone number
-                teamList.add(team); //Adds the contact to the array list
+
+                contactList.add(new Team(Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(2)), cursor.getString(1), cursor.getString(5), cursor.getString(4), cursor.getString(3))); //Adds the contact to the array list
             } while (cursor.moveToNext());
         }
 
-        System.out.println(teamList);
-        return teamList;
+        //System.out.println(contactList);
+        return contactList;
     }
 
-    public void deleteContact(Team team) { //Deletes the contact from the database
+    public void deleteContact(int id) { //Deletes the contact from the database
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(DB_TABLES, KEY_ID + " = ?", new String[] {String.valueOf(team.getId())}); //Deletes the contact suing teh id from the contact object
+        db.delete(DB_TABLES, KEY_ID + " = ?", new String[] {String.valueOf(id)}); //Deletes the contact suing teh id from the contact object
 
         db.close();
     }
 
-    public int updateContact(Team team) {
-     //Modifies the contact
+    public int updateContact(Team team) { //Modifies the contact
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_NAME, team.getName()); //Name variable in new contact
-        values.put(KEY_NUMBER, team.getNumber());
-        values.put(KEY_ALLAINCE, team.getAlliance()); //Phone number variable in new contact
-        values.put(KEY_MATCH_NUMBERS, team.getMatch());
-        values.put(KEY_SCORES, team.getScore());
-
+//            values.put(KEY_NAME, contact.get_name()); //Puts the new contact name from the contact object
+//        values.put(KEY_PH_NO, contact.is_swag()); //Puts the new contact number from the contact object
 
         return db.update(DB_TABLES, values, KEY_ID + " = ?", new String[] { String.valueOf(team.getId()) }); //Updates the contact
     }

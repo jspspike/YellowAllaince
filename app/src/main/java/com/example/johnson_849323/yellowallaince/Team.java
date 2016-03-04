@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by johnson_849323 on 2/25/2016.
  */
-public class Team {
+public class Team implements Comparable{
 
     private int id;
 
@@ -85,5 +85,20 @@ public class Team {
 
     public int getNumber() {
         return number;
+    }
+
+
+
+
+    @Override
+    public String toString() {
+        return "ID: " + id + " Number: " + number + " Name " + name;
+    }
+
+    @Override
+    public int compareTo(Object another) {
+        Team other = (Team) another;
+
+        return this.getNumber() - other.getNumber();
     }
 }
