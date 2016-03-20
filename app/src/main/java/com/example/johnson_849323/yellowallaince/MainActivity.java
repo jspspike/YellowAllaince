@@ -23,27 +23,27 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        manager.clearAll();
-        manager.addContact(new Team(1, 3708, "Iron Eagles Optimus", "Red1|Red2|Red2|Blue1|Blue2", "1|7|15|18|25", "55|33|16|53|47"));
-        manager.addContact(new Team(1, 3781, "Pi-Roh Maniacs", "Blue1|Blue1|Blue1|Red2|Red2", "3|8|11|20|25", "213|120|286|239|47"));
-        manager.addContact(new Team(1, 4027, "Sigma", "Blue1|Red1|Red2|Blue2|Blue2", "5|8|12|19|23", "213|120|286|239|47"));
-        manager.addContact(new Team(1, 4290, "High PHidelity", "Blue2|Blue2|Red1|Blue1|Red2", "4|8|15|17|24", "-1|-1|-1|-1|-1"));
-        manager.addContact(new Team(1, 4723, "Robo Raiders", "Red1|Blue1|Red1|Blue2|Red2", "3|7|14|16|23", "-1|-1|-1|-1|-1"));
-        manager.addContact(new Team(1, 5810, "Those Guys", "Red2|Red1|Blue2|Blue2|Red1", "4|10|13|18|23", "-1|-1|-1|-1|-1"));
-        manager.addContact(new Team(1, 6210, "Stryke", "Red1|Blue1|Blue1|Red1|Blue1", "5|9|13|16|25", "-1|-1|-1|-1|-1"));
-        manager.addContact(new Team(1, 6272, "Iron Eagles Prime", "Red2|Blue2|Red2|Blue2|Blue1", "1|6|13|20|24", "-1|-1|-1|-1|-1"));
-        manager.addContact(new Team(1, 6299, "QuadX", "Red1|Red2|Blue2|Blue1|Blue1", "2|9|11|20|23", "-1|-1|-1|-1|-1"));
-        manager.addContact(new Team(1, 6937, "Ctrl F8", "Red2|Blue2|Red1|Red2|Blue2", "2|7|13|19|22", "-1|-1|-1|-1|-1"));
-        manager.addContact(new Team(1, 7064, "Techno Inferno", "Blue1|Blue1|Blue2|Red1|Red1", "2|6|12|17|25", "-1|-1|-1|-1|-1"));
-        manager.addContact(new Team(1, 7079, "Faltech", "Blue1|Red1|Red2|Blue1|Red2", "4|6|11|16|22", "-1|-1|-1|-1|-1"));
-        manager.addContact(new Team(1, 7717, "Eagles 2", "Blue1|Blue2|Red2|Red2|Blue1", "1|9|14|17|22", "-1|-1|-1|-1|-1"));
-        manager.addContact(new Team(1, 7797, "Victorian Voltage", "Blue2|Red1|Red1|Blue2|Red2", "5|7|11|17|21", "-1|-1|-1|-1|-1"));
-        manager.addContact(new Team(1, 8048, "404 Not Found", "Blue2|Red2|Red1|Red2|Blue2", "1|10|12|16|21", "-1|-1|-1|-1|-1"));
-        manager.addContact(new Team(1, 8683, "Game Changers", "Red2|Blue2|Blue2|Red1|Red1", "5|10|15|20|22", "-1|-1|-1|-1|-1"));
-        manager.addContact(new Team(1, 8886, "Saber Robotics", "Blue2|Red1|Blue1|Red2|Blue2", "3|9|12|18|24", "-1|-1|-1|-1|-1"));
-        manager.addContact(new Team(1, 9048, "Philobots", "Red2|Red2|Blue1|Red1|Blue1", "3|6|15|19|21", "-1|-1|-1|-1|-1"));
-        manager.addContact(new Team(1, 9874, "Back to the PHuture", "Blue2|Red2|Blue2|Red1|Red1", "2|8|14|18|21", "-1|-1|-1|-1|-1"));
-        manager.addContact(new Team(1, 10282, "CruBots", "Red1|Blue1|Blue1|Blue1|Red1", "4|10|14|19|24", "-1|-1|-1|-1|-1"));
+//        manager.clearAll();
+//        manager.addContact(new Team(1, 3708, "Iron Eagles Optimus", "Red1|Red2|Red2|Blue1|Blue2", "1|7|15|18|25", "55|33|16|53|47"));
+//        manager.addContact(new Team(1, 3781, "Pi-Roh Maniacs", "Blue1|Blue1|Blue1|Red2|Red2", "3|8|11|20|25", "213|120|286|239|47"));
+//        manager.addContact(new Team(1, 4027, "Sigma", "Blue1|Red1|Red2|Blue2|Blue2", "5|8|12|19|23", "213|120|286|239|47"));
+//        manager.addContact(new Team(1, 4290, "High PHidelity", "Blue2|Blue2|Red1|Blue1|Red2", "4|8|15|17|24", "-1|-1|-1|-1|-1"));
+//        manager.addContact(new Team(1, 4723, "Robo Raiders", "Red1|Blue1|Red1|Blue2|Red2", "3|7|14|16|23", "-1|-1|-1|-1|-1"));
+//        manager.addContact(new Team(1, 5810, "Those Guys", "Red2|Red1|Blue2|Blue2|Red1", "4|10|13|18|23", "-1|-1|-1|-1|-1"));
+//        manager.addContact(new Team(1, 6210, "Stryke", "Red1|Blue1|Blue1|Red1|Blue1", "5|9|13|16|25", "-1|-1|-1|-1|-1"));
+//        manager.addContact(new Team(1, 6272, "Iron Eagles Prime", "Red2|Blue2|Red2|Blue2|Blue1", "1|6|13|20|24", "-1|-1|-1|-1|-1"));
+//        manager.addContact(new Team(1, 6299, "QuadX", "Red1|Red2|Blue2|Blue1|Blue1", "2|9|11|20|23", "-1|-1|-1|-1|-1"));
+//        manager.addContact(new Team(1, 6937, "Ctrl F8", "Red2|Blue2|Red1|Red2|Blue2", "2|7|13|19|22", "-1|-1|-1|-1|-1"));
+//        manager.addContact(new Team(1, 7064, "Techno Inferno", "Blue1|Blue1|Blue2|Red1|Red1", "2|6|12|17|25", "-1|-1|-1|-1|-1"));
+//        manager.addContact(new Team(1, 7079, "Faltech", "Blue1|Red1|Red2|Blue1|Red2", "4|6|11|16|22", "-1|-1|-1|-1|-1"));
+//        manager.addContact(new Team(1, 7717, "Eagles 2", "Blue1|Blue2|Red2|Red2|Blue1", "1|9|14|17|22", "-1|-1|-1|-1|-1"));
+//        manager.addContact(new Team(1, 7797, "Victorian Voltage", "Blue2|Red1|Red1|Blue2|Red2", "5|7|11|17|21", "-1|-1|-1|-1|-1"));
+//        manager.addContact(new Team(1, 8048, "404 Not Found", "Blue2|Red2|Red1|Red2|Blue2", "1|10|12|16|21", "-1|-1|-1|-1|-1"));
+//        manager.addContact(new Team(1, 8683, "Game Changers", "Red2|Blue2|Blue2|Red1|Red1", "5|10|15|20|22", "-1|-1|-1|-1|-1"));
+//        manager.addContact(new Team(1, 8886, "Saber Robotics", "Blue2|Red1|Blue1|Red2|Blue2", "3|9|12|18|24", "-1|-1|-1|-1|-1"));
+//        manager.addContact(new Team(1, 9048, "Philobots", "Red2|Red2|Blue1|Red1|Blue1", "3|6|15|19|21", "-1|-1|-1|-1|-1"));
+//        manager.addContact(new Team(1, 9874, "Back to the PHuture", "Blue2|Red2|Blue2|Red1|Red1", "2|8|14|18|21", "-1|-1|-1|-1|-1"));
+//        manager.addContact(new Team(1, 10282, "CruBots", "Red1|Blue1|Blue1|Blue1|Red1", "4|10|14|19|24", "-1|-1|-1|-1|-1"));
 
 
 
@@ -79,7 +79,8 @@ public class MainActivity extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.addTeam) {
+            MainActivity.this.startActivity(new Intent(MainActivity.this, AddActivity.class));
             return true;
         }
 
