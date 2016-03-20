@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.johnson_849323.yellowallaince.TeamActivity">
+    <item android:id="@+id/action_settings" android:title="Home"
+        android:orderInCategory="100" android:showAsAction="always" />
+
+    <item android:id="@+id/load" android:title="Load File"
+        android:orderInCategory="100" android:showAsAction="never" />
+</menu>

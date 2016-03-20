@@ -1,6 +1,9 @@
 package com.example.johnson_849323.yellowallaince;
 
+import android.util.Log;
+
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Created by johnson_849323 on 2/25/2016.
@@ -13,13 +16,13 @@ public class Team implements Comparable{
     private String name;
 
     private String alliance;
-    private ArrayList<String> alliances = new ArrayList<>();
+
 
     private String match;
-    private ArrayList<Integer> matches = new ArrayList<>();
 
     private String score;
-    private ArrayList<Integer> scores = new ArrayList<>();
+
+    public Team(){}
 
     public Team(int id, int number, String name, String alliance, String match, String score) {
         this.id = id;
@@ -60,6 +63,14 @@ public class Team implements Comparable{
     }
 
     public ArrayList<Integer> getScores() {
+        ArrayList<Integer> scores = new ArrayList<>();
+
+        Scanner scan = new Scanner(score);
+        scan.useDelimiter("\\|");
+
+        while(scan.hasNextInt()) {
+            scores.add(scan.nextInt());
+        }
         return scores;
     }
 
@@ -75,7 +86,29 @@ public class Team implements Comparable{
         return match;
     }
 
+    public ArrayList<String> getAlliances() {
+        ArrayList<String> allainces = new ArrayList<>();
+
+        Scanner scan = new Scanner(alliance);
+        scan.useDelimiter("\\|");
+
+        while(scan.hasNext()) {
+            allainces.add(scan.next());
+        }
+
+        return allainces;
+    }
+
     public ArrayList<Integer> getMatches() {
+        ArrayList<Integer> matches = new ArrayList<>();
+
+        Scanner scan = new Scanner(match);
+        scan.useDelimiter("\\|");
+
+        while(scan.hasNextInt()) {
+            matches.add(scan.nextInt());
+        }
+
         return matches;
     }
 

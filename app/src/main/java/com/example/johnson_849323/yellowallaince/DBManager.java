@@ -58,6 +58,14 @@ public class DBManager extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    public void clearAll() {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.delete(DB_TABLES, null, null);
+
+        db.close();
+    }
+
     //Adds contact
     public void addContact(Team team) {
         SQLiteDatabase db = this.getWritableDatabase();
