@@ -41,25 +41,8 @@ public class Team implements Comparable{
         this.id = id;
     }
 
-
-    public void setMatch(String match) {
-        this.match = match;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setAlliance(String alliance) {
-        this.alliance = alliance;
-    }
-
-    public void setScore(String score) {
-        this.score = score;
     }
 
     public ArrayList<Integer> getScores() {
@@ -71,6 +54,7 @@ public class Team implements Comparable{
         while(scan.hasNextInt()) {
             scores.add(scan.nextInt());
         }
+        Log.i("Scores", "" + scores);
         return scores;
     }
 
@@ -109,6 +93,7 @@ public class Team implements Comparable{
             matches.add(scan.nextInt());
         }
 
+        Log.i("Matches", "" + matches);
         return matches;
     }
 

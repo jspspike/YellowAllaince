@@ -16,7 +16,7 @@ public class AddActivity extends Activity {
 
 
     public void add(View v) {
-        DBManager manager = new DBManager(this);
+        DBManager manager = new DBManager(this); //Create manager object in order to be able access the database
 
         EditText nameText = (EditText)findViewById(R.id.nameText);
         EditText numberText = (EditText)findViewById(R.id.numberText);
@@ -24,13 +24,13 @@ public class AddActivity extends Activity {
         EditText matchesText = (EditText)findViewById(R.id.matchesText);
         EditText scoresText = (EditText)findViewById(R.id.scoresText);
 
-        try {
-            manager.addContact(new Team(1, Integer.parseInt("" + numberText.getText()), "" + nameText.getText(), "" + allianceText.getText(), "" + matchesText.getText(), "" + scoresText.getText()));
+        try { //Add manual team that is entered by user
+            manager.addTeam(new Team(1, Integer.parseInt("" + numberText.getText()), "" + nameText.getText(), "" + allianceText.getText(), "" + matchesText.getText(), "" + scoresText.getText()));
         }
 
         catch(Exception e) {}
 
-        AddActivity.this.startActivity(new Intent(AddActivity.this, MainActivity.class));
+        AddActivity.this.startActivity(new Intent(AddActivity.this, MainActivity.class)); //Go back to main activity
 
     }
 }

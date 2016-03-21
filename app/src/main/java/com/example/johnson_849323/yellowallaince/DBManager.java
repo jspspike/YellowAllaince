@@ -67,24 +67,24 @@ public class DBManager extends SQLiteOpenHelper {
     }
 
     //Adds contact
-    public void addContact(Team team) {
+    public void addTeam(Team team) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, team.getName()); //Name variable in new contact
-        values.put(KEY_NUMBER, team.getNumber()); //Phone number variable in new contact
-        values.put(KEY_SCORE, team.getScore());
-        values.put(KEY_MATCH, team.getMatch());
-        values.put(KEY_ALLIANCE, team.getAlliance());
+        values.put(KEY_NUMBER, team.getNumber()); //Number of team
+        values.put(KEY_SCORE, team.getScore()); //Scores of matches
+        values.put(KEY_MATCH, team.getMatch()); //Matches of team
+        values.put(KEY_ALLIANCE, team.getAlliance()); //Alliances in order
 
-        db.insert(DB_TABLES, null, values); //Adds the new contact to the database
+        db.insert(DB_TABLES, null, values); //Adds the new team to the database
         db.close();
     }
 
-    public ArrayList<Team> getAllContacts() { //Gets an arraylist of contacts from all of the contacts in the database
+    public ArrayList<Team> getAllTeams() { //Gets an arraylist of teams from all of the contacts in the database
         ArrayList<Team> contactList = new ArrayList<Team>();
 
-        String selectQuery = "SELECT  * FROM " + DB_TABLES; //Gets contact data as a string
+        String selectQuery = "SELECT  * FROM " + DB_TABLES; //Gets team data as a string
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null); //Creates cursor go through the contacts
@@ -100,20 +100,4 @@ public class DBManager extends SQLiteOpenHelper {
         return contactList;
     }
 
-    public void deleteContact(int id) { //Deletes the contact from the database
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(DB_TABLES, KEY_ID + " = ?", new String[] {String.valueOf(id)}); //Deletes the contact suing teh id from the contact object
-
-        db.close();
-    }
-
-    public int updateContact(Team team) { //Modifies the contact
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-//            values.put(KEY_NAME, contact.get_name()); //Puts the new contact name from the contact object
-//        values.put(KEY_PH_NO, contact.is_swag()); //Puts the new contact number from the contact object
-
-        return db.update(DB_TABLES, values, KEY_ID + " = ?", new String[] { String.valueOf(team.getId()) }); //Updates the contact
-    }
 }

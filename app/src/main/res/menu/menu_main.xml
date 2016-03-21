@@ -3,6 +3,9 @@
     <item android:id="@+id/load" android:title="Load File"
         android:orderInCategory="100" android:showAsAction="never" />
 
+    <item android:id="@+id/clear" android:title="Clear Teams"
+        android:orderInCategory="100" android:showAsAction="never" />
+
     <item android:id="@+id/addTeam" android:title="Add Team"
         android:orderInCategory="100" android:showAsAction="never" />
 </menu>
